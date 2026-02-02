@@ -1,0 +1,110 @@
+version: "3.3"
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./database/local_db:/var/lib/postgresql/data
+    command: ["postgres", "-c", "log_statement=all", "-c", "log_destination=syslog"]
+  data-service:
+    build:
+      context: .
+      dockerfile: data/Dockerfile
+    image: data-server
+    platform: linux/amd64
+    ports:
+      - "5003:5000"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - REDIS_URL=redis://redis:6379
+      - APP_NAME=crypto-bot-data
+      - MODEL_APP_URL=http://model-service:5000
+      - EXECUTION_APP_URL=http://execution-service:5000
+      - PORT=5000
+      - LOGGER_LEVEL=INFO
+    volumes:
+      - ./database/model:/usr/src/app/database/model
+  model-service:
+    build:
+      context: .
+      dockerfile: model/Dockerfile.web
+    image: model-server
+    platform: linux/amd64
+    ports:
+      - "5001:5000"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - REDIS_URL=redis://redis:6379
+      - APP_NAME=crypto-bot-model
+      - PORT=5000
+      - LOGGER_LEVEL=DEBUG
+    volumes:
+      - ./database/model:/usr/src/app/database/model
+      - ./model/strategies/models:/usr/src/app/model/strategies/models
+  model-worker:
+    build:
+      context: .
+      dockerfile: model/Dockerfile.worker
+    image: model-worker
+    platform: linux/amd64
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - REDIS_URL=redis://redis:6379
+      - EXECUTION_APP_URL=http://execution-service:5000
+    depends_on:
+      - redis
+    volumes:
+      - ./database/model:/usr/src/app/database/model
+      - ./model/strategies/models:/usr/src/app/model/strategies/models
+  execution-service:
+    build:
+      context: .
+      dockerfile: execution/Dockerfile
+    image: execution-server
+    platform: linux/amd64
+    ports:
+      - "5002:5002"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      - REDIS_URL=redis://redis:6379
+      - APP_NAME=crypto-bot-execution
+      - PORT=5000
+      - LOGGER_LEVEL=DEBUG
+      - SNAPSHOTS_INTERVAL=180
+    volumes:
+      - ./database/model:/usr/src/app/database/model
+  redis:
+    image: redis
+    volumes:
+      - redis-data:/data
+  dashboard:
+    build:
+      context: .
+      dockerfile: dashboard/Dockerfile
+    image: dashboard-server
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_DATA_API_HOST=http://localhost:5003
+      - REACT_APP_EXECUTION_API_HOST=http://localhost:5002
+    volumes:
+      - ./dashboard/src:/app/src
+volumes:
+  db:
+    driver: local
+  redis-data:
+    driver: local
